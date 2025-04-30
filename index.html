@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Priyanka Nandkumar Gaikwad</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.16/typed.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .project-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+        }
+        .skill-progress {
+            height: 10px;
+            border-radius: 5px;
+            background-color: #e9ecef;
+            margin: 8px 0;
+        }
+        .skill-progress-bar {
+            height: 100%;
+            border-radius: 5px;
+            background: linear-gradient(to right, #667eea, #764ba2);
+        }
+        .animate-on-scroll {
+            opacity: 1;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .nav-link {
+            position: relative;
+            padding: 0.5rem;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #7c3aed;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0% { transform: translate(0, 0px); }
+            50% { transform: translate(0, 15px); }
+            100% { transform: translate(0, 0px); }
+        }
+        body {
+            
+            scroll-behavior: smooth;
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 20px;
+        }
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background-color: #a78bfa;
+        }
+        .timeline-item:after {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #7c3aed;
+        }
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(124, 58, 237, 0.8);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            z-index: 20;
+        }
+        .scroll-to-top.visible {
+            opacity: 1;
+        }
+        .devicon {
+        width: 1em;
+        height: 1em;
+        vertical-align: middle;
+    }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md fixed w-full z-10 top-0">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-500">Priyanka Gaikwad</div>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#home" class="nav-link hover:text-purple-600 transition-colors">Home</a>
+                <a href="#about" class="nav-link hover:text-purple-600 transition-colors">About</a>
+                <a href="#education" class="nav-link hover:text-purple-600 transition-colors">Education</a>
+                <a href="#skills" class="nav-link hover:text-purple-600 transition-colors">Skills</a>
+                <a href="#projects" class="nav-link hover:text-purple-600 transition-colors">Projects</a>
+                <a href="#achievements" class="nav-link hover:text-purple-600 transition-colors">Achievements</a>
+                <a href="#contact" class="nav-link hover:text-purple-600 transition-colors">Contact</a>
+            </div>
+            <div class="md:hidden">
+                <button id="menu-toggle" class="focus:outline-none">
+                    <i class="fas fa-bars text-2xl text-purple-600"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white w-full py-4 px-4 shadow-md">
+            <div class="flex flex-col space-y-4">
+                <a href="#home" class="hover:text-purple-600">Home</a>
+                <a href="#about" class="hover:text-purple-600">About</a>
+                <a href="#education" class="hover:text-purple-600">Education</a>
+                <a href="#skills" class="hover:text-purple-600">Skills</a>
+                <a href="#projects" class="hover:text-purple-600">Projects</a>
+                <a href="#achievements" class="hover:text-purple-600">Achievements</a>
+                <a href="#contact" class="hover:text-purple-600">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="gradient-bg text-white min-h-screen flex items-center pt-16">
+        <div class="container mx-auto px-4 text-center">
+            <div class="mb-8 floating">
+                <img src="WhatsApp Image 2024-11-26 at 20.21.42_554531dd.jpg" alt="Profile" class="mx-auto rounded-full w-48 h-48 object-cover border-4 border-white shadow-xl">
+            </div>
+            <h1 class="text-5xl font-bold mb-4">Hi, I'm Priyanka <span id="typed-output" class="text-yellow-300"></span></h1>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">CSE(AIML) Student | Tech Innovator | Problem Solver</p>
+            <div class="space-x-4">
+                <a href="#contact" class="bg-white text-purple-600 px-6 py-3 font-medium rounded-full hover:bg-purple-100 transition-colors shadow-lg">
+                    <i class="fas fa-paper-plane mr-2"></i> Contact Me
+                </a>
+                <a href="https://drive.google.com/file/d/1mAx2Mz0vWfnEcmbHtwOfmJbyJlSIP5E5/view?usp=sharing" target="_blank" class="border-2 border-white px-6 py-3 rounded-full hover:bg-white hover:text-purple-600 transition-colors font-medium">
+                    <i class="fas fa-download mr-2"></i> Download CV
+                </a>
+            </div>
+            <div class="flex justify-center mt-16">
+                <a href="#about" class="text-white animate-bounce">
+                    <i class="fas fa-chevron-down text-3xl"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+   <!-- About Section -->
+<section id="about" class="py-24">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col items-center mb-12">
+            <h2 class="text-3xl font-bold mb-2">About Me</h2>
+            <div class="w-20 h-1 bg-purple-600 rounded-full"></div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="animate-on-scroll">
+                
+                <img src="WhatsApp Image 2025-04-30 at 18.11.11_72f7d7b6.jpg" alt="Priyanka Gaikwad" class="rounded-lg shadow-lg w-full h-auto object-cover"> 
+                
+                <!-- Option 2: Use a professional placeholder (choose one)
+               <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Professional portrait" class="rounded-lg shadow-lg w-full h-auto object-cover"> -->
+            </div>
+            <div class="animate-on-scroll">
+                <h3 class="text-2xl font-bold mb-6 text-purple-600">Passionate Tech Enthusiast & Problem Solver</h3>
+                <p class="text-lg mb-6 leading-relaxed text-gray-700">I'm a passionate engineering student specializing in Computer Science and Engineering (AIML) with a keen interest in innovative technological solutions. My academic journey has been driven by curiosity, problem-solving, and a desire to create impactful technologies that address real-world challenges.</p>
+                <p class="text-lg mb-6 leading-relaxed text-gray-700">I thrive in collaborative environments where I can apply my technical knowledge alongside my creativity and analytical thinking. Whether it's developing AI-powered applications or exploring new technologies, I'm always eager to learn and grow.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Education & Experience Section -->
+    <section id="education" class="py-24 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col items-center mb-12">
+                <h2 class="text-3xl font-bold mb-2">Education</h2>
+                <div class="w-20 h-1 bg-purple-600 rounded-full"></div>
+            </div>
+            <div class="max-w-4xl mx-auto">
+                <div class="timeline-item animate-on-scroll pl-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-purple-600">2022 - Present</h3>
+                        <h4 class="text-lg font-semibold mt-2">Bachelor of Technology - Computer Science and Engineering (AIML)</h4>
+                        <p class="text-gray-600">Vishwakarma Institute of Technology, Pune</p>
+                        <p class="mt-2 font-semibold">CGPA (Upto 5 Semesters): 8.66</p>
+                        <p class="mt-2 text-gray-700">Relevant coursework: Data Structures, Algorithms, Machine Learning, Artificial Intelligence, Database Systems, Web Development</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item animate-on-scroll pl-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-purple-600">2020 - 2022</h3>
+                        <h4 class="text-lg font-semibold mt-2">Higher Secondary Education (HSC)</h4>
+                        <p class="text-gray-600">Shree A.P. Patel Jr. College, Nashik</p>
+                        <p class="mt-2 font-semibold">Percentage: 71.17%</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item animate-on-scroll pl-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-purple-600">2020</h3>
+                        <h4 class="text-lg font-semibold mt-2">Secondary School Certificate (SSC)</h4>
+                        <p class="text-gray-600">Jawahar Navodaya Vidyalaya, Nashik</p>
+                        <p class="mt-2 font-semibold">Percentage: 91.40%</p>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <!-- Skills Section -->
+<section id="skills" class="py-24">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col items-center mb-12">
+            <h2 class="text-3xl font-bold mb-2">My Skills</h2>
+            <div class="w-20 h-1 bg-purple-600 rounded-full"></div>
+        </div>
+        
+        <div class="grid md:grid-cols-1 gap-12">
+            <div class="animate-on-scroll">
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- Programming Languages -->
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-code text-purple-600"></i>
+                            </div>
+                            <h4 class="font-bold text-xl text-purple-600">Programming</h4>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <div class="flex items-center bg-gray-50 px-3 py-2 rounded-lg">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="w-6 h-6 mr-2" alt="Python">
+                                <span>Python</span>
+                            </div>
+                            <div class="flex items-center bg-gray-50 px-3 py-2 rounded-lg">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" class="w-6 h-6 mr-2" alt="Java">
+                                <span>Java</span>
+                            </div>
+                            <div class="flex items-center bg-gray-50 px-3 py-2 rounded-lg">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="w-6 h-6 mr-2" alt="JavaScript">
+                                <span>JavaScript</span>
+                            </div>
+                            <div class="flex items-center bg-gray-50 px-3 py-2 rounded-lg">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="w-6 h-6 mr-2" alt="HTML">
+                                <span>HTML5</span>
+                            </div>
+                            <div class="flex items-center bg-gray-50 px-3 py-2 rounded-lg">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="w-6 h-6 mr-2" alt="CSS">
+                                <span>CSS3</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AI & ML -->
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-brain text-purple-600"></i>
+                            </div>
+                            <h4 class="font-bold text-xl text-purple-600">AI & ML</h4>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <div class="flex items-center bg-gray-50 px-3 py-2 rounded-lg">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" class="w-6 h-6 mr-2" alt="TensorFlow">
+                                <span>TensorFlow</span>
+                            </div>
+                            <div class="flex items-center bg-gray-50 px-3 py-2 rounded-lg">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" class="w-6 h-6 mr-2" alt="PyTorch">
+                                <span>PyTorch</span>
+                            </div>
+                            <div class="flex items-center bg-gray-50 px-3 py-2 rounded-lg">
+                                <i class="fas fa-robot text-gray-600 mr-2"></i>
+                                <span>LLMs</span>
+                            </div>
+                            <div class="flex items-center bg-gray-50 px-3 py-2 rounded-lg">
+                                <i class="fas fa-network-wired text-gray-600 mr-2"></i>
+                                <span>Neural Nets</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Databases -->
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-database text-purple-600"></i>
+                            </div>
+                            <h4 class="font-bold text-xl text-purple-600">Databases</h4>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <div class="flex items-center bg-gray-50 px-3 py-2 rounded-lg">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" class="w-6 h-6 mr-2" alt="MySQL">
+                                <span>MySQL</span>
+                            </div>
+                            <div class="flex items-center bg-gray-50 px-3 py-2 rounded-lg">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" class="w-6 h-6 mr-2" alt="PostgreSQL">
+                                <span>PostgreSQL</span>
+                            </div>
+                            <div class="flex items-center bg-gray-50 px-3 py-2 rounded-lg">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" class="w-6 h-6 mr-2" alt="MongoDB">
+                                <span>MongoDB</span>
+                            </div>
+                            <div class="flex items-center bg-gray-50 px-3 py-2 rounded-lg">
+                                <i class="fas fa-server text-gray-600 mr-2"></i>
+                                <span>JDBC</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tools & Frameworks -->
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-tools text-purple-600"></i>
+                            </div>
+                            <h4 class="font-bold text-xl text-purple-600">Tools & Frameworks</h4>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <div class="flex items-center bg-gray-50 px-3 py-2 rounded-lg">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" class="w-6 h-6 mr-2" alt="Git">
+                                <span>Git</span>
+                            </div>
+                            <div class="flex items-center bg-gray-50 px-3 py-2 rounded-lg">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="w-6 h-6 mr-2" alt="GitHub">
+                                <span>GitHub</span>
+                            </div>
+                            <div class="flex items-center bg-gray-50 px-3 py-2 rounded-lg">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" class="w-6 h-6 mr-2" alt="Flask">
+                                <span>Flask</span>
+                            </div>
+                            <div class="flex items-center bg-gray-50 px-3 py-2 rounded-lg">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" class="w-6 h-6 mr-2" alt="Pandas">
+                                <span>Pandas</span>
+                            </div>
+                            <div class="flex items-center bg-gray-50 px-3 py-2 rounded-lg">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" class="w-6 h-6 mr-2" alt="NumPy">
+                                <span>NumPy</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Soft Skills -->
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-users text-purple-600"></i>
+                            </div>
+                            <h4 class="font-bold text-xl text-purple-600">Soft Skills</h4>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <div class="flex items-center bg-gray-50 px-3 py-2 rounded-lg">
+                                <i class="fas fa-users text-gray-600 mr-2"></i>
+                                <span>Team Leadership</span>
+                            </div>
+                            <div class="flex items-center bg-gray-50 px-3 py-2 rounded-lg">
+                                <i class="fas fa-lightbulb text-gray-600 mr-2"></i>
+                                <span>Problem Solving</span>
+                            </div>
+                            <div class="flex items-center bg-gray-50 px-3 py-2 rounded-lg">
+                                <i class="fas fa-comments text-gray-600 mr-2"></i>
+                                <span>Communication</span>
+                            </div>
+                            <div class="flex items-center bg-gray-50 px-3 py-2 rounded-lg">
+                                <i class="fas fa-clock text-gray-600 mr-2"></i>
+                                <span>Time Management</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Web Development -->
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-globe text-purple-600"></i>
+                            </div>
+                            <h4 class="font-bold text-xl text-purple-600">Web Development</h4>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <div class="flex items-center bg-gray-50 px-3 py-2 rounded-lg">
+                                
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg" class="w-6 h-6 mr-2"/>
+          
+                                <span>Spring</span>
+                            </div>
+                            <div class="flex items-center bg-gray-50 px-3 py-2 rounded-lg">
+                                
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/hibernate/hibernate-original.svg"  class="w-6 h-6 mr-2" alt="Hibernate">
+                                <span>Hibernate</span>
+                            </div>
+                            <div class="flex items-center bg-gray-50 px-3 py-2 rounded-lg">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="w-6 h-6 mr-2" alt="React">
+                                <span>React</span>
+                            </div>
+                            <div class="flex items-center bg-gray-50 px-3 py-2 rounded-lg">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" class="w-6 h-6 mr-2" alt="Node.js">
+                                <span>Node.js</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col items-center mb-12">
+                <h2 class="text-3xl font-bold mb-2">Projects</h2>
+                <div class="w-20 h-1 bg-purple-600 rounded-full"></div>
+                <p class="text-gray-600 mt-4 max-w-2xl text-center">Here are some of my notable projects that showcase my skills and expertise</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Virtual Violin Tutor -->
+                <div class="project-card bg-white p-6 rounded-lg shadow-lg animate-on-scroll">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-music text-purple-600 text-2xl"></i>
+                        </div>
+                        <h3 class="font-bold text-xl">Virtual Violin Tutor</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">AI violin tutor with Flask that uses computer vision for posture analysis and real-time audio processing for pitch correction. Combines machine learning and interactive visual tools for personalized learning.</p>
+                    <div class="mb-4">
+                        <span class="bg-purple-100 text-purple-800 text-sm px-2 py-1 rounded mr-2">Python</span>
+                        <span class="bg-purple-100 text-purple-800 text-sm px-2 py-1 rounded mr-2">Flask</span>
+                        <span class="bg-purple-100 text-purple-800 text-sm px-2 py-1 rounded mr-2">MediaPipe</span>
+                        <span class="bg-purple-100 text-purple-800 text-sm px-2 py-1 rounded">YOLOv8</span>
+                    </div>
+                    <!-- <div class="flex space-x-2">
+                        <a href="#" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 transition-colors">Demo</a>
+                        <a href="#" class="text-purple-600 border border-purple-600 px-4 py-2 rounded hover:bg-purple-50 transition-colors">GitHub</a>
+                    </div> -->
+                </div>
+
+                <!-- MaternAI -->
+                <div class="project-card bg-white p-6 rounded-lg shadow-lg animate-on-scroll">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-baby text-pink-600 text-2xl"></i>
+                        </div>
+                        <h3 class="font-bold text-xl">MaternAI</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Context-aware maternity chatbot leveraging unstructured maternal health literature. Achieved 97% contextual accuracy with multilingual and voice-based support (English, Hindi, Marathi).</p>
+                    <div class="mb-4">
+                        <span class="bg-purple-100 text-purple-800 text-sm px-2 py-1 rounded mr-2">Python</span>
+                        <span class="bg-purple-100 text-purple-800 text-sm px-2 py-1 rounded mr-2">BioMistral</span>
+                        <span class="bg-purple-100 text-purple-800 text-sm px-2 py-1 rounded mr-2">Llama 2</span>
+                        <span class="bg-purple-100 text-purple-800 text-sm px-2 py-1 rounded">Falcon</span>
+                    </div>
+                    <!-- <div class="flex space-x-2">
+                        <a href="#" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 transition-colors">Demo</a>
+                        <a href="#" class="text-purple-600 border border-purple-600 px-4 py-2 rounded hover:bg-purple-50 transition-colors">GitHub</a>
+                    </div> -->
+                </div>
+
+                <!-- PrepMate -->
+                <div class="project-card bg-white p-6 rounded-lg shadow-lg animate-on-scroll">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-graduation-cap text-green-600 text-2xl"></i>
+                        </div>
+                        <h3 class="font-bold text-xl">PrepMate</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">AI-driven interview practice platform with real-time feedback. Integrated Gemini AI to generate realistic interview questions with webcam and microphone support.</p>
+                    <div class="mb-4">
+                        <span class="bg-purple-100 text-purple-800 text-sm px-2 py-1 rounded mr-2">Next.js</span>
+                        <span class="bg-purple-100 text-purple-800 text-sm px-2 py-1 rounded mr-2">Drizzle ORM</span>
+                        <span class="bg-purple-100 text-purple-800 text-sm px-2 py-1 rounded mr-2">PostgreSQL</span>
+                        <span class="bg-purple-100 text-purple-800 text-sm px-2 py-1 rounded">Gemini AI</span>
+                    </div>
+                    <!-- <div class="flex space-x-2">
+                        <a href="#" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 transition-colors">Demo</a>
+                        <a href="https://github.com/priyan-09/PrepMate" class="text-purple-600 border border-purple-600 px-4 py-2 rounded hover:bg-purple-50 transition-colors">GitHub</a>
+                    </div> -->
+                </div>
+
+                <!-- CarEase -->
+                <div class="project-card bg-white p-6 rounded-lg shadow-lg animate-on-scroll">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-car text-blue-600 text-2xl"></i>
+                        </div>
+                        <h3 class="font-bold text-xl">CarEase</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Admin panel for managing car listings with CRUD capabilities and advanced search. Implemented booking request management system for admins and customers.</p>
+                    <div class="mb-4">
+                        <span class="bg-purple-100 text-purple-800 text-sm px-2 py-1 rounded mr-2">MySQL</span>
+                        <span class="bg-purple-100 text-purple-800 text-sm px-2 py-1 rounded mr-2">PHP</span>
+                        <span class="bg-purple-100 text-purple-800 text-sm px-2 py-1 rounded">JavaScript</span>
+                    </div>
+                    <!-- <div class="flex space-x-2">
+                        <a href="#" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 transition-colors">Demo</a>
+                        <a href="#" class="text-purple-600 border border-purple-600 px-4 py-2 rounded hover:bg-purple-50 transition-colors">GitHub</a>
+                    </div> -->
+                </div>
+
+                <!-- Digital Steganography -->
+                <div class="project-card bg-white p-6 rounded-lg shadow-lg animate-on-scroll">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-lock text-orange-600 text-2xl"></i>
+                        </div>
+                        <h3 class="font-bold text-xl">Digital Steganography</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Secure steganography system embedding text/images using LSB method. Features sender-receiver interface with Java Servlets and JDBC for secure data encoding.</p>
+                    <div class="mb-4">
+                        <span class="bg-purple-100 text-purple-800 text-sm px-2 py-1 rounded mr-2">Java</span>
+                        <span class="bg-purple-100 text-purple-800 text-sm px-2 py-1 rounded mr-2">JSP</span>
+                        <span class="bg-purple-100 text-purple-800 text-sm px-2 py-1 rounded mr-2">JDBC</span>
+                        <span class="bg-purple-100 text-purple-800 text-sm px-2 py-1 rounded">MySQL</span>
+                    </div>
+                    <!-- <div class="flex space-x-2">
+                        <a href="#" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 transition-colors">Demo</a>
+                        <a href="#" class="text-purple-600 border border-purple-600 px-4 py-2 rounded hover:bg-purple-50 transition-colors">GitHub</a>
+                    </div> -->
+                </div>
+                
+                <!-- AI Research Assistant
+                <div class="project-card bg-white p-6 rounded-lg shadow-lg animate-on-scroll">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-robot text-indigo-600 text-2xl"></i>
+                        </div>
+                        <h3 class="font-bold text-xl">AI Email Classifier</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Developed an AI-powered to classify emails. </p>
+                    <div class="mb-4">
+                        <span class="bg-purple-100 text-purple-800 text-sm px-2 py-1 rounded mr-2">Python</span>
+                        <span class="bg-purple-100 text-purple-800 text-sm px-2 py-1 rounded mr-2">NLP</span>
+                        <span class="bg-purple-100 text-purple-800 text-sm px-2 py-1 rounded mr-2">Transformers</span>
+                        <span class="bg-purple-100 text-purple-800 text-sm px-2 py-1 rounded">FastAPI</span>
+                    </div>
+                    <div class="flex space-x-2">
+                        <a href="#" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700 transition-colors">Demo</a>
+                        <a href="#" class="text-purple-600 border border-purple-600 px-4 py-2 rounded hover:bg-purple-50 transition-colors">GitHub</a>
+                    </div>
+                </div> -->
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-purple-600 text-white px-6 py-3 rounded-full hover:bg-purple-700 transition-colors shadow-md">
+                    View All Projects <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Achievements Section -->
+    <section id="achievements" class="py-24">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col items-center mb-12">
+                <h2 class="text-3xl font-bold mb-2">Achievements</h2>
+                <div class="w-20 h-1 bg-purple-600 rounded-full"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-lg shadow-lg animate-on-scroll">
+                    <h3 class="text-2xl font-bold mb-6 text-purple-600">Academic & Technical</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-trophy text-purple-600"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold">Won the internal hackathon for Smart India Hackathon 2024</p>
+                                <p class="text-gray-600 mt-1">Developed an innovative solution addressing healthcare challenges</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-medal text-purple-600"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold">2nd prize in Innovation Expo 2024 at VIT Pune (150+ teams)</p>
+                                <p class="text-gray-600 mt-1">Recognized for MaternAI project showcasing innovative application of AI in healthcare</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-certificate text-purple-600"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold">IBM Full Stack Developer Certificate</p>
+                                <p class="text-gray-600 mt-1">Completed comprehensive coursework in full stack developement</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-lg animate-on-scroll">
+                    <h3 class="text-2xl font-bold mb-6 text-purple-600">Extra-Curricular</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-volleyball-ball text-purple-600"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold">Regional Player in Handball</p>
+                                <p class="text-gray-600 mt-1">Represented district team in state-level handball championship</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-hands-helping text-purple-600"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold">Volunteered in AIDS awareness campaign in JNV Nashik</p>
+                                <p class="text-gray-600 mt-1">Led team of volunteers to organize community awareness programs</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-users text-purple-600"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold">Event Coordinator for Technical Symposium</p>
+                                <p class="text-gray-600 mt-1">Successfully managed and coordinated technical events with 500+ participants</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Contact Section -->
+    <section id="contact" class="gradient-bg text-white py-24">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col items-center mb-12">
+                <h2 class="text-3xl font-bold mb-2">Contact Me</h2>
+                <div class="w-20 h-1 bg-white rounded-full"></div>
+                <p class="text-white mt-4 max-w-2xl text-center">Feel free to reach out for collaborations or just a friendly chat</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="animate-on-scroll">
+                    <div class="bg-white p-8 rounded-lg shadow-lg text-gray-800">
+                        <h3 class="text-2xl font-bold mb-6 text-purple-600">Get In Touch</h3>
+                        <form>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2" for="name">Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600" placeholder="Your Name">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2" for="email">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600" placeholder="Your Email">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2" for="message">Message</label>
+                                <textarea id="message" rows="5" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600" placeholder="Your Message"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700 transition-colors">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="animate-on-scroll">
+                    <div class="bg-white p-8 rounded-lg shadow-lg text-gray-800 h-full">
+                        <h3 class="text-2xl font-bold mb-6 text-purple-600">Contact Information</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-envelope text-purple-600"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium">Email</p>
+                                    <p class="text-gray-600">priyang9876@gmail.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-phone text-purple-600"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium">Phone</p>
+                                    <p class="text-gray-600">+91 7666051588</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-map-marker-alt text-purple-600"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium">Location</p>
+                                    <p class="text-gray-600">Pune, Maharashtra, India</p>
+                                </div>
+                            </div>
+                            
+                            <div class="pt-6">
+                                <p class="font-medium mb-4">Social Profiles</p>
+                                <div class="flex space-x-4">
+                                    <a href="www.linkedin.com/in/priyanka-gaikwad-037882268" class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center hover:bg-purple-200 transition-colors">
+                                        <i class="fab fa-linkedin-in text-purple-600"></i>
+                                    </a>
+                                    <a href="https://github.com/priyan-09" class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center hover:bg-purple-200 transition-colors">
+                                        <i class="fab fa-github text-purple-600"></i>
+                                    </a>
+                                    <!-- <a href="#" class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center hover:bg-purple-200 transition-colors">
+                                        <i class="fab fa-twitter text-purple-600"></i>
+                                    </a> -->
+                                    <!-- <a href="#" class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center hover:bg-purple-200 transition-colors">
+                                        <i class="fab fa-instagram text-purple-600"></i>
+                                    </a> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-400 mb-4">Priyanka Gaikwad</h3>
+                    <p class="text-gray-400 mb-4">A passionate computer science engineer specializing in AI & ML, dedicated to creating innovative solutions through technology.</p>
+                    <div class="flex space-x-4">
+                        <a href="www.linkedin.com/in/priyanka-gaikwad-037882268" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/priyan-09" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <!-- <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a> -->
+                        <!-- <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a> -->
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">About</a></li>
+                        <li><a href="#skills" class="text-gray-400 hover:text-white transition-colors">Skills</a></li>
+                        <li><a href="#projects" class="text-gray-400 hover:text-white transition-colors">Projects</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Newsletter</h3>
+                    <p class="text-gray-400 mb-4">Subscribe to receive updates on my latest projects and tech insights.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 rounded-l-lg w-full focus:outline-none">
+                        <button type="submit" class="bg-purple-600 px-4 py-2 rounded-r-lg hover:bg-purple-700 transition-colors">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p>&copy; 2024 Priyanka Gaikwad. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top" class="scroll-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script>
+        // Typed.js for dynamic text
+        document.addEventListener('DOMContentLoaded', function() {
+            // Typed.js initialization
+            new Typed('#typed-output', {
+                strings: [' an Engineer', ' a Developer', ' an AI Enthusiast', ' an Innovator'],
+                typeSpeed: 100,
+                backSpeed: 50,
+                loop: true
+            });
+
+            // Smooth scrolling for navigation
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // Mobile menu toggle
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (menuToggle && mobileMenu) {
+                menuToggle.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+            
+            // Animate on scroll
+            const animateElements = document.querySelectorAll('.animate-on-scroll');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            animateElements.forEach(element => {
+                observer.observe(element);
+            });
+            
+            // Scroll to top button
+            const scrollToTopButton = document.getElementById('scroll-to-top');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    scrollToTopButton.classList.add('visible');
+                } else {
+                    scrollToTopButton.classList.remove('visible');
+                }
+            });
+            
+            scrollToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
